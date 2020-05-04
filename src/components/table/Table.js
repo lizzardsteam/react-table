@@ -2,9 +2,13 @@ import React, {useState} from "react";
 
 /**
  * Props:
+ * @param headers: Array<{label: string, identifier: string}>
+ * @param body: Array<{id: number, name: string, company: string, ceo: string, date: string}>
  * @param bordered: boolean
  * @param hoverable: boolean
- * @param headers: [ { label: 'Lable', identifier: 'Identifier' } ]
+ * @param searchBar: boolean
+ * @param searchFields: Array<string>
+ * @param countItems: boolean
  * */
 export default function Table(props) {
     const [tHead] = useState(props.headers);
@@ -101,7 +105,7 @@ export default function Table(props) {
             </table>
             <div className="row">
                 <div className="col-4 success">
-                    {(props.countItems) ? `${tBody.length} ${(tBody.length === 1) ? 'запис' : 'записа'}` : ''}
+                    {(props.countItems) ? `${tBody.length} ${(tBody.length === 1) ? 'item' : 'items'}` : ''}
                 </div>
                 <div className="col-4">
                     {/*Pagination*/}
